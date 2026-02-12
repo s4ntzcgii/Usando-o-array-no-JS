@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exemplo de Array em javascript</title>
+
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f8;
+        padding: 30px;
+    }
+
+    h1{
+        color: #333;
+        text-align: center;
+    }
+
+    #resultado {
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 10x;
+        box-shadow: 0 2x 5px rgba(0,0,0,0.1);
+        width: 350px;
+        margin: 20px auto;
+    }
+
+    button{
+        margin: 5px;
+        padding: 10px 15px;
+        font-size: 16px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        transition: 0.2;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+
+<body>
+    
+    <h1>exemplo de uso de array em javascript</h1>
+
+    <div id="resultado"></div>
+
+    <div style="text-align: center;">
+        <button onclick="mostrarfrutas()">mostrar frutas</button>
+        <button onclick="adicionarfruta()">adicionar fruta</button>
+        <button onclick="removerultima()">remover ultima</button>
+    </div>
+
+    <script>
+        let frutas = [];
+
+        function mostrarfrutas() {
+
+            let resultadodiv = document.getElementById("resultado");
+
+            if (frutas.length === 0) {
+
+            resultadodiv.innerHTML = `
+                <strong>array completo:</strong> [] <br>
+                <strong>quantidade de frutas:</strong> 0 <br>
+                <em>o array esta vazio.</em>
+                `;
+
+            }else{
+                resultadodiv.innerHTML = `
+                <strong>array completo:</strong> [${frutas.join(", ")}] <br>
+                <strong>quantidade de frutas:</strong> ${frutas.length} <br>
+                `;
+            }
+        }
+
+        function adicionarfruta() {
+            let novafruta = prompt("digite o nome da nova fruta:");
+
+            if (novafruta) {
+
+                frutas.push(novafruta);
+
+                mostrarfrutas();
+            }
+        }
+
+        function removerultima() {
+
+            if (frutas.length > 0){
+
+                frutas.pop();
+            }else{
+                alert("o array ja esta vazio");
+            }
+
+            mostrarfrutas();
+        }
+
+        mostrarfrutas();
+    </script>
+</body>
+</html>
